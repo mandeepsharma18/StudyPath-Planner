@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPath Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">Java DSA Project</p>
+            <h1>StudyPath Planner</h1>
+        </div>
+        <div class="scoreboard" aria-label="Study progress">
+            <span id="completedCount">0</span>
+            <small>completed</small>
+        </div>
+    </header>
+
+    <main class="app-shell">
+        <section class="panel controls-panel" aria-label="Project controls">
+            <div class="control-group">
+                <label for="topicName">Topic</label>
+                <input id="topicName" type="text" placeholder="Example: Linked List">
+            </div>
+
+            <div class="control-grid">
+                <div class="control-group">
+                    <label for="topicCategory">Category</label>
+                    <select id="topicCategory">
+                        <option>Java Fundamentals</option>
+                        <option>DSA</option>
+                        <option>Practice</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="difficulty">Difficulty</label>
+                    <input id="difficulty" type="number" min="1" max="5" value="3">
+                </div>
+                <div class="control-group">
+                    <label for="importance">Importance</label>
+                    <input id="importance" type="number" min="1" max="5" value="4">
+                </div>
+            </div>
+
+            <button id="addTopicBtn" class="primary-btn">Add Topic</button>
+
+            <div class="button-row">
+                <button id="priorityBtn">Sort By Priority</button>
+                <button id="undoBtn">Undo Complete</button>
+            </div>
+
+            <div class="control-group">
+                <label for="searchInput">Binary Search</label>
+                <div class="inline-action">
+                    <input id="searchInput" type="text" placeholder="Exact topic name">
+                    <button id="searchBtn">Search</button>
+                </div>
+                <p id="searchResult" class="result-text"></p>
+            </div>
+        </section>
+
+        <section class="panel topics-panel" aria-label="Topics">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ArrayList + HashMap</p>
+                    <h2>Study Topics</h2>
+                </div>
+                <button id="resetBtn" class="ghost-btn">Reset</button>
+            </div>
+            <div id="topicList" class="topic-list"></div>
+        </section>
+
+        <section class="panel queue-panel" aria-label="Study queue">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Queue</p>
+                    <h2>Study Queue</h2>
+                </div>
+                <button id="studyNextBtn">Study Next</button>
+            </div>
+            <div id="queueList" class="queue-list"></div>
+        </section>
+
+        <section class="panel graph-panel" aria-label="Prerequisite path finder">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Graph BFS</p>
+                    <h2>Prerequisite Path</h2>
+                </div>
+            </div>
+
+            <div class="control-grid two-col">
+                <div class="control-group">
+                    <label for="startTopic">Start</label>
+                    <input id="startTopic" type="text" value="Variables">
+                </div>
+                <div class="control-group">
+                    <label for="endTopic">End</label>
+                    <input id="endTopic" type="text" value="Sorting">
+                </div>
+            </div>
+
+            <button id="pathBtn" class="primary-btn">Find Path</button>
+            <div id="pathResult" class="path-result"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
